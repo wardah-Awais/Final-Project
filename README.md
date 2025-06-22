@@ -23,7 +23,7 @@ We used feature branches:
 - BorrowBook`
 - ReturnBook`
 - SearchBook`
-All branches merged into `main`.
+All branches merged into the main.
 
 ##  Scalability & Future Enhancements
 The current design is modular and scalable, making it easy to add new features like:
