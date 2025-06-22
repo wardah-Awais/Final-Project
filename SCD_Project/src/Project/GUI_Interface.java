@@ -122,7 +122,51 @@ public class GUI_Interface extends JFrame {
 		    }
 		});
 
-		
+			  //button to borrow a book
+		btnBorrow.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+
+		        // Get the book title entered by the user 
+		        String title = txtTitle.getText().trim();
+
+		        // If the user not enter name
+		        if (title.isEmpty()) {
+		            textArea.setText(" Please enter a book title to borrow.");
+		            return; 
+		        }
+
+		        // If the book is found in the available books list
+		        if (availableBooks.contains(title)) {
+		            availableBooks.remove(title);         // Remove it from available
+		            borrowedBooks.add(title);            // Add it to borrowed list
+		            textArea.setText("  Book borrowed: " + title);
+		        } 
+		        else {
+		            // If the book is not in the available list
+		            textArea.setText("---- Book not available.----");
+	   btnSearch.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        String title = txtTitle.getText().trim();
+		     // If the user did not type anything
+		        if (title.isEmpty()) {
+		            textArea.setText("Please enter a book title to search.");
+		            return;
+		        }
+
+
+		        if (availableBooks.contains(title)) {
+		            textArea.setText("Book is available in the library.");
+		        } 
+		     // Check if it is in the borrowed list
+		        else if (borrowedBooks.contains(title)) {
+		            textArea.setText("Book is currently borrowed.");
+		        } 
+		     // If the book is not found in either list
+		        else {
+		            textArea.setText("Book not found.");
+		        }
+		    }
+		});
 		
 
 		btnClear.addActionListener(new ActionListener() {
