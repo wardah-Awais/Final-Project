@@ -97,6 +97,28 @@ public class GUI_Interface extends JFrame {
 	    
 	    //<<<<<<<<<<<<<<<<< Buttons Logic (Main Logic) >>>>>>>>>>>>>>>>>
 
+	  //button to borrow a book
+		btnBorrow.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+
+		        // Get the book title entered by the user 
+		        String title = txtTitle.getText().trim();
+
+		        // If the user not enter name
+		        if (title.isEmpty()) {
+		            textArea.setText(" Please enter a book title to borrow.");
+		            return; 
+		        }
+
+		        // If the book is found in the available books list
+		        if (availableBooks.contains(title)) {
+		            availableBooks.remove(title);         // Remove it from available
+		            borrowedBooks.add(title);            // Add it to borrowed list
+		            textArea.setText("  Book borrowed: " + title);
+		        } 
+		        else {
+		            // If the book is not in the available list
+		            textArea.setText("---- Book not available.----");
 	   btnSearch.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        String title = txtTitle.getText().trim();
