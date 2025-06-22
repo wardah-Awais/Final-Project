@@ -97,52 +97,7 @@ public class GUI_Interface extends JFrame {
 	    
 	    //<<<<<<<<<<<<<<<<< Buttons Logic (Main Logic) >>>>>>>>>>>>>>>>>
 
-	    //button to add books
-		btnAdd.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		    	//.trim() → removes spaces at the beginning and end 
-		        String title = txtTitle.getText().trim();
-		        // Check if the input is empty
-		        if (title.isEmpty()) {
-		            textArea.setText(" Please enter a valid book title.");
-		            return;
-		        }
-		     // Check if the book already exists in the availableBooks
-		        if (availableBooks.contains(title)) {
-		            textArea.setText(" Book already exists in the library.");
-		        } 
-		        else {
-		        	// If not already present, add the book to the list
-		            availableBooks.add(title);
-		            textArea.setText(" Book added:  " + title);
-		        }
-		    }
-		});
-
-		
-	    //button to List available books
-		btnList.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		        // If no books in the list, show message
-		        if (availableBooks.isEmpty()) {
-		            textArea.setText("---- No available books.----");
-		            return;
-		        }
-		        // Create a string to hold the book list
-		        String books = "----  Available Books----- :\n";
-
-		        // Use for loop to go through the list
-		        for (int i = 0; i < availableBooks.size(); i++) {
-		            String book = availableBooks.get(i);
-		            books += "-> " + book + "\n";
-		        }
-		        // Show the list in the text area
-		        textArea.setText(books);
-		    }
-		});
-		
-		
-		//button to borrow a book
+	  //button to borrow a book
 		btnBorrow.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 
@@ -167,58 +122,6 @@ public class GUI_Interface extends JFrame {
 		        }
 		    }
 		});
-		
-		//button to return a book
-		btnReturn.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-
-		        // Get the book title entered by the user (remove extra spaces)
-		        String title = txtTitle.getText().trim();
-
-		        // If no title was entered
-		        if (title.isEmpty()) {
-		            textArea.setText("Please enter a book title to return.");
-		            return; 
-		        }
-
-		        // Check if the book is in the borrowed list
-		        if (borrowedBooks.contains(title)) {
-		            borrowedBooks.remove(title);         // Remove from borrowed list
-		            availableBooks.add(title);           // Add back to available list
-		            textArea.setText("Book returned: " + title); 
-		        } 
-		        else {
-		            textArea.setText("Book not in borrowed list.");
-		        }
-		    }
-		});
-
-		
-
-		btnSearch.addActionListener(new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		        String title = txtTitle.getText().trim();
-		     // If the user did not type anything
-		        if (title.isEmpty()) {
-		            textArea.setText("Please enter a book title to search.");
-		            return;
-		        }
-
-
-		        if (availableBooks.contains(title)) {
-		            textArea.setText("Book is available in the library.");
-		        } 
-		     // Check if it is in the borrowed list
-		        else if (borrowedBooks.contains(title)) {
-		            textArea.setText("Book is currently borrowed.");
-		        } 
-		     // If the book is not found in either list
-		        else {
-		            textArea.setText("Book not found.");
-		        }
-		    }
-		});
-
 		
 
 		btnClear.addActionListener(new ActionListener() {
