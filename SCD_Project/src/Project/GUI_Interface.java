@@ -119,6 +119,26 @@ public class GUI_Interface extends JFrame {
 		        else {
 		            // If the book is not in the available list
 		            textArea.setText("---- Book not available.----");
+	   btnSearch.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        String title = txtTitle.getText().trim();
+		     // If the user did not type anything
+		        if (title.isEmpty()) {
+		            textArea.setText("Please enter a book title to search.");
+		            return;
+		        }
+
+
+		        if (availableBooks.contains(title)) {
+		            textArea.setText("Book is available in the library.");
+		        } 
+		     // Check if it is in the borrowed list
+		        else if (borrowedBooks.contains(title)) {
+		            textArea.setText("Book is currently borrowed.");
+		        } 
+		     // If the book is not found in either list
+		        else {
+		            textArea.setText("Book not found.");
 		        }
 		    }
 		});
