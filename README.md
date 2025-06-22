@@ -25,6 +25,12 @@ We used feature branches:
 - SearchBook`
 All branches merged into `main`.
 
+##  Scalability & Future Enhancements
+The current design is modular and scalable, making it easy to add new features like:
+- Book genres and categories
+- User account system (login, registration)
+- Due dates and fine calculations for borrowed books
+
 ## Instructor
 Zainab Saeed
 
