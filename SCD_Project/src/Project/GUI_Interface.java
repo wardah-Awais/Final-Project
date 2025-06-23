@@ -84,6 +84,14 @@ public class GUI_Interface extends JFrame {
 	    btnClear.setBackground(Color.LIGHT_GRAY); 
 	    btnClear.setForeground(Color.WHITE);
 	    inputField.add(btnClear);
+	    
+	    JButton btnReplay = new JButton("Replay");
+	    btnReplay.setBounds(180, 300, 150, 30);
+	    btnReplay.setBackground(Color.YELLOW);
+	    btnReplay.setForeground(Color.BLACK);
+	    inputField.add(btnReplay);
+
+	    
 
 	    // === Text Area for Output ===
 	    textArea = new JTextArea();
@@ -229,6 +237,23 @@ public class GUI_Interface extends JFrame {
 		        textArea.setText("");
 		    }
 		});
+		
+		
+		btnReplay.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        // Clear both book lists
+		        availableBooks.clear();
+		        borrowedBooks.clear();
+
+		        // Clear the input and output fields
+		        txtTitle.setText("");
+		        textArea.setText("Library has been reset. Ready to start again!");
+
+		        // Optional: Confirm replay
+		        JOptionPane.showMessageDialog(null, "Library reset completed.");
+		    }
+		});
+
 
 
 	}
