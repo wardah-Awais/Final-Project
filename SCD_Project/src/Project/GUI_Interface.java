@@ -104,6 +104,28 @@ public class GUI_Interface extends JFrame {
 	    inputField.add(textArea);
 	    
 	    //<<<<<<<<<<<<<<<<< Buttons Logic (Main Logic) >>>>>>>>>>>>>>>>>
+    
+	    //button to add books
+		btnAdd.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		    	//.trim() → removes spaces at the beginning and end 
+		        String title = txtTitle.getText().trim();
+		        // Check if the input is empty
+		        if (title.isEmpty()) {
+		            textArea.setText(" Please enter a valid book title.");
+		            return;
+		        }
+		     // Check if the book already exists in the availableBooks
+		        if (availableBooks.contains(title)) {
+		            textArea.setText(" Book already exists in the library.");
+		        } 
+		        else {
+		        	// If not already present, add the book to the list
+		            availableBooks.add(title);
+		            textArea.setText(" Book added:  " + title);
+		        }
+		    }
+		});
 
 	    //button to add books
 		btnAdd.addActionListener(new ActionListener() {
@@ -228,7 +250,7 @@ public class GUI_Interface extends JFrame {
 		});
 
 		
-
+    
 		btnClear.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        // Clear the text in the input field
