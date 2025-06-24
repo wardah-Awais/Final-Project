@@ -6,6 +6,7 @@ This is a Java GUI-based application built using Swing. It simulates a basic lib
 - List available books
 - Borrow and return books
 - Search by title
+- Replay Button
 - Clear screen
 
 ## Technologies Used
